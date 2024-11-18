@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Detalle Producto</title>
+{% endblock extrahead%}
+
+{% block content %}
+<a class="btn btn-warning" href="{% url 'index' %}">Regresar</a>
+<h1>Detalle</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Título</th>
+            <th scope="col">Referencia</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Origen</th>
+            <th scope="col">Artista</th>
+            <th scope="col">Imagen</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">{{arte.id}}</th>
+            <td>{{arte.titulo}}</td>
+            <td>{{arte.numero_referencia}}</td>
+            <td>{{arte.fecha_pub}}</td>
+            <td>{{arte.lugar_origen}}</td>
+            <td>{{arte.artista}}</td>
+            <td><img src="{{arte.imagen.url}}" style="width: 80%;"></td>
+        </tr>
+    </tbody>
+</table>
+{% endblock content%}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extrahead %} 
+<title>Inicio</title>
+{% endblock extrahead%}
+
+{% block content %}
+<h1> Menu Principal</h1>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Título</th>
+            <th scope="col">Detalles</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for arte in artes %}
+        <tr>
+            <th scope="row">{{arte.id}}</th>
+            <td>{{arte.titulo}}</td>
+            <td><a class="btn btn-success" href="{% url 'detalleArte' arte.id %}">Detalles</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content%}
